@@ -39,7 +39,7 @@ const createPersistor = (ctx, persistKey, persistFields) => {
 export const persisterMixin = (persistFields, options = {}) => ({
   created() {
     const persistKey =
-      this.$attrs["persist-id"] || this.$options.name || options.persistKey;
+      this.$attrs["persist-id"] || options.persistKey || this.$options.name;
     delete this.$attrs["persist-id"];
 
     if (!persistKey) {
