@@ -16,11 +16,15 @@
 </template>
 
 <script>
-import { persisterMixin } from "@/lib/persistorMixin";
+import { persistorMixin } from "@/lib/persistorMixin";
 
 export default {
-  name: "ExampleForm",
-  mixins: [persisterMixin(["username", "email", "address"])],
+  name: "ExampleFormWithPersistKey",
+  mixins: [
+    persistorMixin(["username", "email", "address"], {
+      persistKey: "test-persist-id"
+    })
+  ],
   data() {
     return {
       username: "",

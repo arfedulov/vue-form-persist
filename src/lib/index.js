@@ -1,3 +1,3 @@
-import { persisterMixin } from "@/lib/persistorMixin";
+import { persistorMixin } from "@/lib/persistorMixin";
 
-export { persisterMixin };
+export { persistorMixin };

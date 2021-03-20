@@ -1,8 +1,8 @@
 import Vue from "vue";
-import ExampleApp from "./ExampleApp.vue";
+import DemoApp from "./DemoApp.vue";
 
 Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(ExampleApp)
+  render: h => h(DemoApp)
 }).$mount("#app");

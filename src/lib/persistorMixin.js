@@ -36,7 +36,7 @@ const createPersistor = (ctx, persistKey, persistFields) => {
   return { persistFn, restoreFn };
 };
 
-export const persisterMixin = (persistFields, options = {}) => ({
+export const persistorMixin = (persistFields, options = {}) => ({
   created() {
     const persistKey =
       this.$attrs["persist-id"] || options.persistKey || this.$options.name;
@@ -44,7 +44,7 @@ export const persisterMixin = (persistFields, options = {}) => ({
 
     if (!persistKey) {
       throw Error(
-        'Invalid usage of "persisterMixin". Missing "persistKey" option'
+        'Invalid usage of "persistorMixin". Missing "persistKey" option'
       );
     }
 

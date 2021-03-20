@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import { persisterMixin } from "@/lib/persistorMixin";
+import { persistorMixin } from "@/lib/persistorMixin";
 
 export default {
-  name: "ExampleFormWithPersistKey",
+  name: "ExampleFormWithCustomDebounceTime",
   mixins: [
-    persisterMixin(["username", "email", "address"], {
-      persistKey: "test-persist-id"
+    persistorMixin(["username", "email", "address"], {
+      debounceTime: 100
     })
   ],
   data() {

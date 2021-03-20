@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ExampleForm from "@/components/ExampleForm.vue";
+import ExampleForm from "./ExampleForm.vue";
 
 export default {
   name: "ExampleFormWithPersistIdAttribute",

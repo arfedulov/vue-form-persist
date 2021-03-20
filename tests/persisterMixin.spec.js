@@ -1,8 +1,9 @@
 import { mount } from "@vue/test-utils";
 
-import ExampleForm from "@/components/ExampleForm.vue";
-import ExampleFormWithPersistKey from "@/components/ExampleFormWithPersistKey.vue";
-import ExampleFormWithPersistIdAttribute from "@/components/ExampleFormWithPersistIdAttribute.vue";
+import ExampleForm from "./components/ExampleForm.vue";
+import ExampleFormWithPersistKey from "./components/ExampleFormWithPersistKey.vue";
+import ExampleFormWithPersistIdAttribute from "./components/ExampleFormWithPersistIdAttribute.vue";
+import ExampleFormWithCustomDebounceTime from "./components/ExampleFormWithCustomDebounceTime.vue";
 
 const waitMs = ms =>
   new Promise(resolve => {
@@ -143,6 +144,37 @@ describe("persistorMixin.js", () => {
       expect(wrapper.vm.username).toBe(savedData.username);
       expect(wrapper.vm.email).toBe(savedData.email);
       expect(wrapper.vm.address).toBe(savedData.address);
+    });
+  });
+
+  describe("when debounceTime is provided in mixin options", () => {
+    it("debounce saving the data to local storage by specified time", async () => {
+      expect.assertions(1);
+      const wrapper = mount(ExampleFormWithCustomDebounceTime);
+
+      const username = wrapper.find('[name="username"]');
+      username.element.value = "hello";
+      await username.trigger("input");
+
+      const email = wrapper.find('[name="email"]');
+      email.element.value = "a@b.com";
+      await email.trigger("input");
+
+      const assress = wrapper.find('[name="address"]');
+      assress.element.value = "abc";
+      await assress.trigger("input");
+
+      await waitMs(200);
+
+      const savedData = JSON.parse(
+        localStorage.getItem("ExampleFormWithCustomDebounceTime")
+      );
+
+      expect(savedData).toEqual({
+        username: "hello",
+        email: "a@b.com",
+        address: "abc"
+      });
     });
   });
 });
