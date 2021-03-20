@@ -5,6 +5,8 @@ vue forms. The mixin exposes `persist()` method which you can call
 in order to persist the component's data. The method is 1 second debounced
 by default.
 
+[live demo](https://arfedulov.github.io/vue-form-persist/)
+
 An example of basic usage:
 
 ```html

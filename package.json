@@ -1,11 +1,32 @@
 {
   "name": "@arfedulov/vue-form-persist",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "main": "dist/vueFormPersist.common.js",
+  "description": "A library which helps you creating persistent vue forms",
+  "keywords": [
+    "vue",
+    "persist",
+    "form"
+  ],
+  "author": "Artem Fedulov <arfedulov@gmail.com>",
+  "homepage": "https://github.com/arfedulov/vue-form-persist#readme",
+  "bugs": {
+    "url": "https://github.com/arfedulov/vue-form-persist/issues"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arfedulov/vue-form-persist.git"
+  },
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name vueFormPersist ./src/lib/index.js",
+    "build:demo": "vue-cli-service build",
     "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
